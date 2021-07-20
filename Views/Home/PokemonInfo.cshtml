@@ -1,0 +1,126 @@
+﻿@model Pokedex.Models.PokedexInfoComplete
+@using System;
+@using System.Collections.Generic;
+@{
+    ViewBag.Title = "PokemonInfo";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pokedex</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    @Styles.Render("~/bundles/descstyle");
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+
+    <section class="container">
+
+        <section class="container-flex">
+            <div class="filtros">
+                <section class="page-left">
+                    @if (Convert.ToInt32(Model.NumberPo) == 001)
+                    {
+                        <a href="@Url.Action("PokemonInfo", "Home", new { Name = Model.FinalRowName })">
+                            <div class="btn">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("PokemonInfo", "Home", new { Name = Model.back })">
+                            <div class="btn">
+                                <i class="fas fa-arrow-alt-circle-left"></i>
+                            </div>
+                        </a>
+                    }
+
+                </section>
+
+                <section class="descripcion">
+                    <div>
+                        <h1>Descripción</h1>
+                    </div>
+                </section>
+
+                <section class="page-right">
+                    @if (Model.Name == Model.FinalRowName)
+                    {
+                        <a href="@Url.Action("PokemonInfo", "Home", new { Name = "Bulbasaur"})">
+                            <div class="btn">
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("PokemonInfo", "Home", new { Name = Model.front})">
+                            <div class="btn">
+                                <i class="fas fa-arrow-alt-circle-right"></i>
+                            </div>
+                        </a>
+                    }
+
+                </section>
+
+
+            </div>
+
+        </section>
+
+
+        <div class="img-desc">
+            <div class="imagen">
+                <h2 class="nombre">@Model.Name</h2>
+                <figure>
+                    <img src="/Public/PicturePokemon/@Model.Picture" height="450px">
+                </figure>
+
+            </div>
+            <div class="desc">
+                <h2>@Model.Description</h2>
+                <div class="box"></div>
+                <div class="descbox">
+                    <h3>Altura: @Model.Height m</h3>
+                    <h3>Peso: @Model.Weight kg</h3>
+                    <h3>Categoria: @Model.CategoryName</h3>
+                    <h3>Habilidad: @Model.HabilityName</h3>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="type">
+
+            <div class="tipo">
+                <h2 class="nombre-type">Tipo</h2>
+                @for (int i = 0; i < Model.TypeFName.Count; i++)
+                {
+                    <div class="abilities">
+                        <span style="background-color:@Model.FColor[i]">@Model.TypeFName[i]</span>
+                    </div>
+                }
+            </div>
+
+            <div class="debilidad">
+                <h2 class="nombre-type">Debilidad</h2>
+                @for (int i = 0; i < Model.TypeWName.Count; i++)
+                {
+                    <div class="abilities">
+                        <span style="background-color:@Model.WColor[i]">@Model.TypeWName[i]</span>
+                    </div>
+                }
+            </div>
+        </div>
+
+</body>
+</html>

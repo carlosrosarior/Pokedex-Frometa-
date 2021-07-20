@@ -1,0 +1,88 @@
+﻿@model Pokedex.Models.PokedexModel
+@{
+    ViewBag.Title = "DeletePokemon";
+}
+<h2>Eliminar el Pokemon de la Pokedex</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Id">Id</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Id" name="Id" type="text" value="@Model.Id" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Id" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Seq">Seq</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Seq must be a number." data-val-required="The Seq field is required." id="Seq" name="Seq" type="number" value="@Model.Seq" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Seq" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="NumberPo">Numero de la Posición</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="NumberPo" name="NumberPo" type="text" value="@Model.NumberPo" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="NumberPo" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Nombre</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="@Model.Name" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Height">Altura</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="@Model.Height" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Weight">Peso</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="@Model.Weight" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">Descripción</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Description" name="Description" type="text" value="@Model.Description" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">CreatedDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@Model.CreatedDate">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Eliminar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+@Html.ActionLink("Devolver a la lista", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

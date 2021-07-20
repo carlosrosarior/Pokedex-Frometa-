@@ -1,0 +1,43 @@
+﻿@model Pokedex.Models.PokedexCategory
+@{
+    ViewBag.Title = "EditCategory";
+}
+
+<h2>Editar la habilidad del pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="@Model.Name">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">CreatedDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@Model.CreatedDate">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Editar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Devolver a la lista", "Index")
+    </div>
+</div>

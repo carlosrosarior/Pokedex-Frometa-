@@ -1,0 +1,60 @@
+﻿@model Pokedex.Models.PokedexTypeWeak
+@{
+    ViewBag.Title = "DeleteWeak";
+}
+<h2>Eliminar debilidades del Pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Id">Id</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Id" name="Id" type="text" value="@Model.Id" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Id" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Seq">Seq</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-number="The field Seq must be a number." data-val-required="The Seq field is required." id="Seq" name="Seq" type="number" value="@Model.Seq" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Seq" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PokedexId">PokedexId</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="PokedexId" name="PokedexId" type="text" value="@Model.PokedexId" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="TypeId">TypeId</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="TypeId" name="TypeId" type="text" value="@Model.TypeId" disabled="disabled">
+                <span class="field-validation-valid text-danger" data-valmsg-for="TypeId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Eliminar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+@Html.ActionLink("Devolver a la lista", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

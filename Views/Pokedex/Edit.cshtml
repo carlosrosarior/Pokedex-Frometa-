@@ -1,0 +1,137 @@
+﻿@using Pokedex.Models
+@model PokedexAll
+@{
+    ViewBag.Title = "EditPokemon";
+}
+@Styles.Render("~/bundles/CssSelectOption")
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<h2>Editar Pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="NumberPo">Numero de la posicion</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="NumberPo" name="NumberPo" type="text" value="@Model.SelectPokemon.NumberPo">
+                <span class="field-validation-valid text-danger" data-valmsg-for="NumberPo" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Nombre</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text" value="@Model.SelectPokemon.Name">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PictureId">Picture</label>
+            <div class="col-md-10">
+                <div class="selectbox">
+                    <div class="select" id="select">
+                        <div class="contenido-select">
+                            <h5 class="titulo">Selecciona tu Pokemon</h5>
+                        </div>
+                        <i class="fas fa-angle-down"></i>
+                    </div>
+                    <!--Opciones-->
+
+                    <div class="opciones" id="opciones">
+                        @foreach (var item in Model.SelectPicture)
+                        {
+                            <a href="#" class="opcion">
+                                <div class="contenido-opcion">
+                                    <img src="~/Public/PicturePokemon/@item.Picture" style="width:40px; height:auto;">
+                                    <div class="textos">
+                                        <h4 class="titulo">
+                                            @item.Id
+                                        </h4>
+                                    </div>
+                                </div>
+                            </a>
+                        }
+                    </div>
+                </div>
+                <input type="hidden" name="PictureId" id="PictureId" value="@Model.SelectPokemon.PictureId">
+                <span class="field-validation-valid text-danger" data-valmsg-for="PictureId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CategoryId">Categoria</label>
+            <div class="col-md-10">
+                <select id="CategoryId" name="CategoryId" style="width: 100%; height:35px">
+                    <option>Selecciona un categoria</option>
+                    <option selected="selected" value="@Model.SelectPokemon.CategoryId">Seleccion Previa</option>
+                    @foreach (var item in Model.SelectCategory)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Height">Altura</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Height" name="Height" type="number" value="@Model.SelectPokemon.Height" step="0.01">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Height" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Weight">Peso</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Weight" name="Weight" type="number" value="@Model.SelectPokemon.Weight" step="0.01">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Weight" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="HabilityId">Habilidad</label>
+            <div class="col-md-10">
+                <select id="HabilityId" name="HabilityId" style="width: 100%; height:35px">
+                    <option>Selecciona una habilidad</option>
+                    <option selected="selected" value="@Model.SelectPokemon.HabilityId">Seleccion Previa</option>
+                    @foreach (var item in Model.SelectHability)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Description">Descripcion</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Description" name="Description" type="text" value="@Model.SelectPokemon.Description">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">Fecha de Creación</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@Model.SelectPokemon.CreatedDate">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Agregar Pokemon" class="btn btn-default" />
+            </div>
+        </div>
+
+    }
+    <div>
+        @Html.ActionLink("Devolver a la lista", "Index")
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jquerySelectOption");
+}
+

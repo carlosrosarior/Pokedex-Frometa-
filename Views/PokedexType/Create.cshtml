@@ -1,0 +1,69 @@
+﻿@model Pokedex.Controllers.PokedexTypeController
+@{
+    ViewBag.Title = "AddTypeQualityorWeak";
+}
+<h2>Añadir Tipos de Cualidad o Debilidad del Pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Name">Name</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Name" name="Name" type="text">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Color">Color</label>
+            <div class="col-md-10">
+                <select id="Color" name="Color" style="width: 100%; height:35px">
+                    <option value="#8be086">Verde Planta</option>
+                    <option value="#db74d9">Morado Veneno</option>
+                    <option value="#ff9b4f">Naranja Fuego</option>
+                    <option value="#1edbd8">Azul Volador</option>
+                    <option value="#5998e5">Azul Agua</option>
+                    <option value="#62bf5d">Verde Bicho</option>
+                    <option value="#62bf5d">Verde Bicho</option>
+                    <option value="#afb5b3">Gris Normal</option>
+                    <option value="#f7df56">Amarillo Electrico</option>
+                    <option value="#f736ed">Rosado Psíquico</option>
+                    <option value="#2aeff9">Azul Hielo</option>
+                    <option value="#c9c34a">Amarillo Oscuro Tierra</option>
+                    <option value="#bc9600">Marron Roca</option>
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="Color" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">CreatedDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@DateTime.Now">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+@Html.ActionLink("Devolver a la lista", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+

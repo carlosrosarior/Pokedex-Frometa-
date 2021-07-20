@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Pokedex.Models.PokedexTypeWeak>
+@{
+    ViewBag.Title = "PokedexTypeWeak";
+}
+<style href="..Content/index.css"></style>
+<div class="row">
+    <h1>Tipos de debilidades del pokemon</h1>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table table-hover">
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>Seq</td>
+            <td>PokedexId</td>
+            <td>TypeId</td>
+            <td>Delete-Item</td>
+            <td>Edit-Item</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>@item.Seq</td>
+                <td>@item.PokedexId</td>
+                <td>@item.TypeId</td>
+                <td class="td-Delete">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+                <td class="td-Edit">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+
+            </tr>
+        }
+    </table>
+
+</div>

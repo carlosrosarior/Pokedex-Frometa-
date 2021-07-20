@@ -1,0 +1,60 @@
+﻿@using Pokedex.Models
+@model PokedexAll
+@{
+    ViewBag.Title = "EditTypeQualityPokemon";
+}
+<h2>Editar tipos de cualidades al Pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="PokedexId">Pokemon</label>
+            <div class="col-md-10">
+                <select id="PokedexId" name="PokedexId" style="width: 100%; height:35px">
+                    <option>Seleccione un Pokemon</option>
+                    <option selected="selected" value="@Model.SelectTypeQuality.PokedexId">Seleccionado Previamente</option>
+                    @foreach (var item in Model.SelectPokemons)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="PokedexId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="TypeId">Tipo de cualidad del pokemon</label>
+            <div class="col-md-10">
+                <select id="TypeId" name="TypeId" style="width: 100%; height:35px">
+                    <option>Seleccione Tipo de cualidad</option>
+                    <option selected="selected" value="@Model.SelectTypeQuality.TypeId">Seleccionado Previamente</option>
+                    @foreach (var item in Model.SelectType)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+                <span class="field-validation-valid text-danger" data-valmsg-for="TypeId" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Añadir" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+@Html.ActionLink("Devolver a la lista", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

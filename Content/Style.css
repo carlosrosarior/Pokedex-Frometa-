@@ -1,0 +1,242 @@
+﻿
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+.pokedex-results {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+
+.container-flex {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+body {
+    color: #111111;
+    font-size: 1.5em;
+}
+
+.in-flex {
+    flex: 1;
+    min-width: 228px;
+}
+
+
+
+
+
+.pokedex-results .results {
+    float: left;
+    margin-right: -100%;
+    width: 85.49%;
+    margin-left: 7.2525%;
+}
+
+.ul {
+    list-style: none;
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+}
+
+.img {
+    width: auto;
+    height: auto;
+}
+
+footer * {
+    float: left;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+    footer *:hover {
+        color: red;
+    }
+
+.tipos {
+    display: flex;
+}
+
+
+
+.buscar {
+    position: absolute;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+}
+
+    .buscar input {
+        width: 0px;
+        height: 40px;
+        padding: 0 20px;
+        font-size: 18px;
+        color: #000;
+        outline: none;
+        border: 1px solid silver;
+        border-radius: 30px;
+        transition: all 0.6s ease;
+    }
+
+.btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgb(238, 62, 8);
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.buscar:hover input {
+    width: 240px;
+}
+
+.buscar input:focus {
+    width: 240px;
+}
+
+.jumbotron {
+    color: lightgoldenrodyellow;
+    background-color: #E3350D;
+    background-image: url('../Picture/Jumbotron background.png');
+}
+
+.filtros {
+    height: 100px;
+    width: 1140px;
+    overflow: visible;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: flex;
+}
+
+.container {
+    box-sizing: border-box;
+    background-image: url('../Picture/container_bg.png');
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    max-width: 1280px;
+    overflow: hidden;
+    position: block;
+}
+
+.pokedex-results .results li figure {
+    background: #F2F2F2;
+    float: left;
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    width: 100%;
+    padding-top: 100%
+}
+
+a {
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.pokedex-results .results li figure img {
+    float: left;
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.section {
+    padding: 1em 0;
+    padding-top: 1em;
+    padding-right: 0px;
+    padding-bottom: 1em;
+    padding-left: 0px;
+}
+
+.div {
+    display: flex;
+}
+
+.pokedex-results .results li .pokemon-info .abilities span {
+    font-family: "Flexo-Medium",arial,sans-serif;
+    border-radius: 3px;
+    line-height: 18px;
+    max-width: 110px;
+    margin: 0 1.5625% 0 0;
+    width: 38.4375%;
+    float: left;
+    text-transform: none;
+    font-size: 11px;
+    text-align: center;
+}
+
+.background-color-poison {
+    background: -webkit-linear-gradient( 180deg, #b97fc9 50%, #b97fc9 50%);
+    background: linear-gradient( 180deg, #b97fc9 50%, #b97fc9 50%);
+    background-color: #b97fc9;
+    color: #fff;
+}
+
+.background-color-grass {
+    background: linear-gradient( 180deg, #9bcc50 50%, #9bcc50 50%);
+    background-color: #9bcc50;
+    color: #212121;
+}
+
+.background-color-fire {
+    background: linear-gradient( 180deg, #fd7d24 50%, #fd7d24 50%);
+    background-color: #fd7d24;
+    color: #fff;
+}
+
+.background-color-water {
+    background: linear-gradient( 180deg, #4592c4 50%, #4592c4 50%);
+    background-color: #4592c4;
+    color: #fff;
+}
+
+.pokedex-results .results li {
+    display: block;
+    float: left;
+    position: relative;
+    margin: 0 .78125% 50px;
+    width: 23.4375%;
+}
+
+    .pokedex-results .results li:hover {
+        animation: bounce 0.5s linear;
+    }
+
+@keyframes bounce {
+    20% {
+        transform: translateY(-6px);
+    }
+
+    40% {
+        transform: translateY(0px);
+    }
+
+    60% {
+        transform: translateY(-2px);
+    }
+
+    80% {
+        transform: translateY(-0px);
+    }
+}

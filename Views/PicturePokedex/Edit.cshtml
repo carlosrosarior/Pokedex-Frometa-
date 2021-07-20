@@ -1,0 +1,44 @@
+﻿@model Pokedex.Models.PicturePokedexModel
+@{
+    ViewBag.Title = "EditPicture";
+}
+
+<h2>Editar imagen de la foto</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm("Edit", "PicturePokedex", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <img src="~/Public/PicturePokemon/@Model.Picture" style="width:50px; height:auto;" />
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Picture">Picture</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="Picture" name="Picture" type="file">
+                <span class="field-validation-valid text-danger" data-valmsg-for="Picture" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">CreatedDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@Model.CreatedDate">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Editar" class="btn btn-default" />
+            </div>
+        </div>
+    }
+    <div>
+        @Html.ActionLink("Devolver a la lista", "Index")
+    </div>
+</div>

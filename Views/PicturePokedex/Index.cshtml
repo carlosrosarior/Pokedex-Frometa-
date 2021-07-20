@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Pokedex.Models.PicturePokedexModel>
+@{
+    ViewBag.Title = "PicturesPokemon";
+}
+<style href="..Content/index.css"></style>
+<div class="row">
+    <h1>Fotos de los Pokemon</h1>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    @if (ViewBag.Message != "" && ViewBag.Message != null)
+    {
+        <h3>Chupa Pollas</h3>
+    }
+    <table class="table table-hover">
+        <tr>
+            <td>
+                Id
+            </td>
+            <td>Seq</td>
+            <td>Picture</td>
+            <td>CreatedDate</td>
+            <td>Delete-Item</td>
+            <td>Edit-Item</td>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>@item.Seq</td>
+                <td><img src="~/Public/PicturePokemon/@item.Picture" style ="width:50px; height:auto;"/></td>
+                <td>@item.CreatedDate</td>
+                <td class="td-Delete">@Html.ActionLink("Delete", "Delete", new { id = item.Id })</td>
+                <td class="td-Edit">@Html.ActionLink("Edit", "Edit", new { id = item.Id })</td>
+
+            </tr>
+        }
+    </table>
+
+</div>

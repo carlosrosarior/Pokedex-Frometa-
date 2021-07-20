@@ -1,0 +1,80 @@
+﻿
+@model IEnumerable<Pokedex.Models.PokedexInfoNC>
+@{
+    ViewBag.Title = "Home Pokemons";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pokedex</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    @Styles.Render("~/bundles/style")
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+
+
+</head>
+
+<body>
+
+
+    <section class="container">
+        <section class="jumbotron">
+            <div class="column-6 push-1">
+                <h1 class="text-center rounded-3"> <b>POKÉDEX </b></h1>
+            </div>
+
+        </section>
+        <section class="container-flex">
+            <div class="filtros">
+                <section class="buscar">
+                    <div class="column-6 push-1">
+                        <input type="text" placeholder="Buscar" required>
+                        <div class="btn">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+
+
+            </div>
+        </section>
+
+
+
+
+        <section class="pokedex-results">
+            <ul class="results container-flex" style="height:auto">
+                @foreach (var item in Model)
+                {
+                    <li class="in-flex">
+                        <figure>
+                            <a href="@Url.Action("PokemonInfo", "Home", new { Name = item.Name })">
+                                <img src="~/Public/PicturePokemon/@item.Picture">
+                            </a>
+                        </figure>
+                        <div class="pokemon-info">
+                            <p class="id">
+                                <span class="number-prefix">N.</span>
+                                "@item.NumberPo"
+                            </p>
+                            <h5>@item.Name</h5>
+                            @for(int i = 0; i<item.TypeName.Count; i++)
+                            {
+                                <div class="abilities">
+                                    <span style="background-color:@item.Color[i];">@item.TypeName[i]</span>
+                                </div>
+                            }
+                        </div>
+
+                    </li>
+                }
+            </ul>
+        </section>
+</body>
+</html>

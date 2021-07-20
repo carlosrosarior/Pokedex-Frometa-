@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "AddPicturePokemon";
+}
+<h2>Añadir Fotos del Pokemon</h2>
+@if (ViewBag.Message != null)
+{
+    <h3>@ViewBag.Message</h3>
+}
+
+<div class="form-horizontal">
+    <hr />
+
+    @using (Html.BeginForm("Create","PicturePokedex",FormMethod.Post, new { enctype = "multipart/form-data"}))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Picture">Picture</label>
+            <div class="col-md-10">
+                <input type="file" id="Picture" name="Picture" style="width: 100%; height:35px"; />       
+                <span class="field-validation-valid text-danger" data-valmsg-for="Picture" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="CreatedDate">CreatedDate</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" data-val="true" data-val-date="The field CreatedDate must be a date." data-val-required="The CreatedDate field is required." disabled="disabled" id="CreatedDate" name="CreatedDate" type="datetime" value="@DateTime.Now">
+                <span class="field-validation-valid text-danger" data-valmsg-for="CreatedDate" data-valmsg-replace="true"></span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Añadir" class="btn btn-default" />
+            </div>
+        </div>
+    }
+</div>
+@Html.ActionLink("Devolver a la lista", "Index")
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

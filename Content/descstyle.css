@@ -1,0 +1,304 @@
+﻿
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+
+
+.container-flex{
+    
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    
+}
+
+
+body {
+    color: #111111;
+    font-size: 1.5em;
+    
+}
+
+.tipo{
+    height: auto;
+    min-width: 228px;
+
+}
+
+
+.ul{
+    list-style: none;
+    list-style-position: initial;
+    list-style-image: initial;
+    list-style-type: none;
+    
+}
+
+.img {
+  width: auto;
+  height: auto;
+  
+}
+
+footer * {
+    float:left;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+footer *:hover {
+    color:red;
+}
+
+.tipos{
+    display: flex;
+
+}
+
+.descripcion{
+    display: flex;
+}
+
+
+.page-left{
+    position: relative;
+    padding: 5px;
+    display: flex;
+    align-items: flex-start;
+    
+}
+
+.page-right{
+    position: relative;
+    padding: 5px;
+    display: flex;
+    align-items: flex-end;
+
+}
+
+
+.btn{
+    position: relative;
+    top: 0;
+    right: 0;
+    background: rgb(238, 62, 8);
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+
+.h1, h1{
+    font-size: 75px;
+    font-family:"Flexo-Medium",arial,sans-serif;
+    color: #212121
+}
+
+.h2, h2{
+    font-size: 30px;
+    font-family:"Flexo-Medium",arial,sans-serif;
+    color: #212121
+}
+
+.h3, h3{
+    font-size: 25px;
+    font-family:"Flexo-Medium",arial,sans-serif;
+    color: #ffffff
+}
+
+.filtros{
+    height: 200px;
+    width: 1140px;
+    overflow: visible;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    position: flex;
+    padding: 120px;
+    
+
+}
+
+.container {
+    box-sizing: border-box;
+    background: url('../Picture/container_bg.png');
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    max-width: 1280px;
+    overflow: hidden;
+    position: block;
+}
+
+
+
+.section{
+    padding: 1em 0;
+    padding-top: 1em;
+    padding-right: 0px;
+    padding-bottom: 1em;
+    padding-left: 0px;
+}
+
+.div{
+    display: flex;
+}
+
+
+.background-color-poison {
+    background: -webkit-linear-gradient(
+180deg
+, #b97fc9 50%, #b97fc9 50%);
+    background: linear-gradient(
+180deg
+, #b97fc9 50%, #b97fc9 50%);
+    background-color: #b97fc9;
+    color: #fff;
+}
+
+.background-color-grass {
+    
+    background: linear-gradient(
+180deg
+, #9bcc50 50%, #9bcc50 50%);
+    background-color: #9bcc50;
+    color: #212121;
+}
+
+.background-color-fire {    
+    background: linear-gradient(
+180deg
+, #fd7d24 50%, #fd7d24 50%);
+    background-color: #fd7d24;
+    color: #fff;
+}
+
+.background-color-water {
+    background: linear-gradient(
+180deg
+, #4592c4 50%, #4592c4 50%);
+    background-color: #4592c4;
+    color: #fff;
+}
+
+
+.img-desc{
+    display:flex;
+}
+
+.img-desc div{
+     border: 0px rgb(238, 62, 8) solid;
+    padding: 10px;
+}
+
+.imagen{
+    flex: 1;
+    order: 1;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.desc{
+    flex: 1;
+    order: 2;
+    align-items: center;
+    justify-content: center;
+}
+
+.box {
+    background-image: url('../Picture/container_bg.png');
+    height: 50px;
+}
+
+.descbox{
+   flex-wrap: wrap;
+   align-items: flex-end;
+}
+
+.descbox {
+ background-color: #30a7d7;
+ color: #fff;
+ height: 220px;
+ border-radius: 10px;
+ }
+
+.type .tipo .abilities span{
+ font-family: "Flexo-Medium",arial,sans-serif;
+ border-radius: 3px;
+ line-height: 18px;
+ max-width: 110px;
+ margin: 0 1.5625% 0 0;
+ width: 38.4375%;
+ float: left;
+ text-transform: none;
+ font-size: 11px;
+ text-align: center;
+}
+
+.type{
+ display: flex;
+ justify-content: space-around;
+ align-items: flex-start;
+ align-content: center;
+ flex-direction: row;
+ flex-wrap: wrap;
+}
+
+.type div{
+ border: 0px rgb(238, 62, 8) solid;
+ padding: 10px;
+}
+
+.nombre{
+ margin-left: 170px;
+ font-size: 50px;
+ color: rgb(116, 112, 112);
+}
+
+figure{
+    background: #F2F2F2;
+    display: flex;
+}
+
+img{
+    margin-left: 50px;
+}
+
+.debilidad{
+    min-width: 228px;
+    height: auto;
+}
+
+.abilities{
+    height: 30px;
+}
+
+.nombre-type{
+    margin-left: 10px;
+}
+
+.type .debilidad .abilities span{
+    font-family: "Flexo-Medium",arial,sans-serif;
+    border-radius: 3px;
+    line-height: 18px;
+    max-width: 110px;
+    margin: 0 1.5625% 0 0;
+    width: 38.4375%;
+    float: left;
+    text-transform: none;
+    font-size: 11px;
+    text-align: center;
+   }
